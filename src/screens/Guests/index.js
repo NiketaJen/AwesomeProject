@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
 import {View, Text, Pressable} from 'react-native';
 import styles from './styles.js'
+import {useNavigation} from '@react-navigation/native'
+
 
 const GuestsScreen = (props) => {
     const [adults, setAdults] = useState(0)
     const [children, setChildren] = useState(0)
     const [infants, setInfants] = useState(0)
+    const navigation = useNavigation();
     return (
-        <View>
+        <View style={{justifyContent: 'space-between', height: '100%'}}>
+            {/* All views go in this view below */}
+            <View>
+
             {/* Row 1: Adults */}
             <View style={styles.row}>
 
@@ -103,6 +109,27 @@ const GuestsScreen = (props) => {
                     </Pressable>
                 </View>
                 
+            </View>
+
+            {/* All views go in view end tag below */}
+            </View>
+
+            {/* New button for search results */}
+            <View>
+                <Pressable 
+                    onPress={() => console.warn('search me bih')} 
+                    style={{
+                        marginBottom: 20, 
+                        backgroundColor: '#f15454', 
+                        alignItems: 'center', 
+                        justifyContent: 'center', 
+                        height: 50, 
+                        marginHorizontal: 20, 
+                        borderRadius: 10
+                    }}
+                >
+                    <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>Search</Text>
+                </Pressable>
             </View>
             
         </View>
